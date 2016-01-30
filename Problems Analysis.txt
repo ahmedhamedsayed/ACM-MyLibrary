@@ -1,0 +1,2 @@
+D - Hamiltonian Spanning Tree [http://codeforces.com/contest/618/problem/D]
+	Each node must exist at most 2 edges so DP(node, rem edges) and for each child node check which better to keep edge with it or not.
