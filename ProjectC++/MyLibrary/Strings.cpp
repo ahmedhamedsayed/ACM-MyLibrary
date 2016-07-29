@@ -16,34 +16,34 @@ using namespace __gnu_cxx;
  *      	a) If Z[K] < R-i+1  then there is no prefix substring starting at str[i] so Z[i] = Z[K] and interval [L,R] remains same.
  *      	b) If Z[K] >= R-i+1 then it is possible to extend the [L,R] interval thus we will set L as i and start matching from str[R] then Z[i] = R-L+1.
  */
-vector<int> buildZArray(string &str) {
-	vector<int> Z(str.size(), 0);
+const int N = 100000;
+int z[N];
+void buildZArray(string &str) {
 	int l = 0, r = 0, sz = str.size();
 	for (int i = 1; i < sz; ++i) {
 		if (i > r) {
 			l = r = i;
 			while (r < sz && str[r - l] == str[r])
 				++r;
-			Z[i] = r - l, --r;
-		} else if (Z[i - l] < r - i + 1) {
-			Z[i] = Z[i - l];
+			z[i] = r - l, --r;
+		} else if (z[i - l] < r - i + 1) {
+			z[i] = z[i - l];
 		} else {
 			l = i;
 			while (r < sz && str[r - l] == str[r])
 				++r;
-			Z[i] = r - l, --r;
+			z[i] = r - l, --r;
 		}
 	}
-	return Z;
 }
 
 vector<int> searchZFunction(string &text, string &pattern) {
 	string concat = pattern + "$" + text;
-	vector<int> Z = buildZArray(concat);
+	buildZArray(concat);
 	vector<int> places;
 	int sz = pattern.size();
 	for (int i = sz + 1; i < int(concat.size()); ++i)
-		if (Z[i] == sz)
+		if (z[i] == sz)
 			places.push_back(i - sz - 1);
 	return places;
 }

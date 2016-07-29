@@ -1,0 +1,12 @@
+/*
+ * Index given to update and query at bit should be one-based.
+ * To move to parent at update: index += index & (-index).
+ * To move to parent at query : index -= index & (-index).
+ * Update range [l,r] with value v using to bit:
+ * 		1) Update first one at index l with v.
+ * 		2) Update first one at index r+1 with -v.
+ * 		3) Update second one at index l with v*(a-1).
+ * 		4) Update second one at index r+1 with -v*b.
+ * 	Query to get sum from begin to index:
+ * 		query(first, index) * index - query(second, index).
+ */
