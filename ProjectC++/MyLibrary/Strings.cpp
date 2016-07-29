@@ -6,6 +6,15 @@ using namespace __gnu_cxx;
 
 /**
  * Z Algorithm (Search For All Places That Pattern Happened In Text)
+ * An element Z[i] of Z array stores length of the longest substring starting from i which is also a prefix of str.
+ * The idea is to maintain an interval [L, R] which is the interval with max R such that [L,R] is prefix substring. 
+ * Steps for maintaining this interval are as follows:
+ *    1) If i > R then there is no prefix substring that starts before i and ends after i, so we reset and compute new [L,R] by comparing str[0..] to str[i..] then Z[i] = R-L+1.
+ *	  2) If i <= R then let K = i-L,
+ *	     str[i..] matches with str[K..] for at least R-i+1 characters (they are in [L,R] interval which we know is a prefix substring).
+ *   	 Now two sub cases arise:
+ *      	a) If Z[K] < R-i+1  then there is no prefix substring starting at str[i] so Z[i] = Z[K] and interval [L,R] remains same.
+ *      	b) If Z[K] >= R-i+1 then it is possible to extend the [L,R] interval thus we will set L as i and start matching from str[R] then Z[i] = R-L+1.
  */
 vector<int> buildZArray(string &str) {
 	vector<int> Z(str.size(), 0);
