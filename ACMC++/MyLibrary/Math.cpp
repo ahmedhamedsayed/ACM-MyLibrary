@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
-#include <ext/numeric>
 
 using namespace std;
-using namespace __gnu_cxx;
 
 /**
  * Fermat's little theorem: (a ^ -1) % p = (a ^ (p - 2)) % p if p prime.

@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 const double EPS = 1e-9;
 
 enum SOL {

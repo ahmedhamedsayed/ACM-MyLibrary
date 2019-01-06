@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
-#include <ext/numeric>
 
 using namespace std;
-using namespace __gnu_cxx;
 
 /**
  * Z Algorithm (Search For All Places That Pattern Happened In Text)

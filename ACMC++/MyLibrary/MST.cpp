@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 struct disjointSet {
     vector<int> par, size, rank;
     int numSet;

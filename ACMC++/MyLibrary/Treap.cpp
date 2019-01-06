@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
-#include <ext/numeric>
 
 using namespace std;
-using namespace __gnu_cxx;
 
 struct node {
 	node *left, *right;
