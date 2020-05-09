@@ -1,4 +1,4 @@
-# ACM-MyLibrary
+# ICPC-MyLibrary
 * Data Structure:
   - BIT
   - Treap
